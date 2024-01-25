@@ -2,3 +2,4 @@ Name                    Email
 ----------------------------------------------
 Ethan Hunt              hunte6@unlv.nevada.edu
 Dafne Gonzalez          gonzad28@unlv.nevada.edu
+Timothy McAllister      mcallt2@unlv.nevada.edu
