@@ -27,6 +27,7 @@ def github_auth(url, lsttoken, ct):
 def countfiles(dictfiles, lsttokens, repo):
     ipage = 1  # url page counter
     ct = 0  # token counter
+    source_file_extensions = ['.py', '.js', '.java', '.c', '.cpp', '.cs', '.go', '.rb', '.php', '.swift', '.ts', '.kt', '.rs', '.m', '.h', '.hpp', '.hs', '.scala', '.erl', '.lua', '.r', '.pl', '.sh', '.bash', '.yml', '.json', '.xml', '.html', '.css', '.sass', '.less']
 
     try:
         # loop though all the commit pages until the last returned empty page
@@ -47,8 +48,9 @@ def countfiles(dictfiles, lsttokens, repo):
                 filesjson = shaDetails['files']
                 for filenameObj in filesjson:
                     filename = filenameObj['filename']
-                    dictfiles[filename] = dictfiles.get(filename, 0) + 1
-                    print(filename)
+                    if any(filename.endswith(ext) for ext in source_file_extensions):
+                        dictfiles[filename] = dictfiles.get(filename, 0) + 1
+                        print(filename)
             ipage += 1
     except:
         print("Error receiving data")
@@ -64,9 +66,7 @@ repo = 'scottyab/rootbeer'
 # Remember to empty the list when going to commit to GitHub.
 # Otherwise they will all be reverted and you will have to re-create them
 # I would advise to create more than one token for repos with heavy commits
-lstTokens = ["fd02a694b606c4120b8ca7bbe7ce29229376ee",
-                "16ce529bdb32263fb90a392d38b5f53c7ecb6b",
-                "8cea5715051869e98044f38b60fe897b350d4a"]
+lstTokens = ["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"]
 
 dictfiles = dict()
 countfiles(dictfiles, lstTokens, repo)
