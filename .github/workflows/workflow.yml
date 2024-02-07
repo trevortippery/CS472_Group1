@@ -28,4 +28,5 @@ jobs:
           flake8 tdd/tests/test_counter.py --count --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Run unit tests with nose
+        working-directory: tdd/
         run: nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
