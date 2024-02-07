@@ -33,3 +33,12 @@ def read_a_counter(name):
         return {name: COUNTERS[name]}, status.HTTP_200_OK
     else:
         return {"Message":f"Counter {name} does not exist"}, status.HTTP_404_NOT_FOUND
+
+@app.route('/counters/<name>', methods=['DELETE'])
+def delete_a_counter(name):
+    """Deletes a counter"""
+    if name in COUNTERS:
+        del COUNTERS[name]
+        return '', status.HTTP_204_NO_CONTENT
+    else:
+        return {"Message":f"Counter {name} does not exist to delete"}, status.HTTP_404_NOT_FOUND
