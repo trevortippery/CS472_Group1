@@ -1,13 +1,10 @@
 def proper_capitalization():
+    options = {"rock": "Rock", "paper": "Paper", "scissors": "Scissors"}
 
     selection = input("Choose: rock, paper, or scissors?").lower()
 
-    if selection == "rock":
-        return "Rock"
-    elif selection == "paper":
-        return "Paper"
-    elif selection == "scissors":
-        return "Scissors"
+    if selection in options:
+        return options[selection]
     else:
         print("Not a valid choice!")
         return "Error"
