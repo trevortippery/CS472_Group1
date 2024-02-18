@@ -8,4 +8,9 @@ def complex_operation(number):
     Returns:
     float or int: The result of the complex mathematical operations.
     """
-    return (((number * 5) / 6) + number - 6) * 6
+    step1 = number * 5
+    step2 = step1 / 6
+    step3 = step2 + number - 6
+    result = step3 * 6
+
+    return result
